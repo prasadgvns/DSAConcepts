@@ -98,4 +98,28 @@ public class LinkedList {
         return this.head == null;
     }
 
+
+    // Element exist in LinkedList or not
+    public boolean isExistIterative(int item){
+        Node temp = this.head;
+
+        while(temp != null){
+            if(temp.data == item){
+                return true;
+            }
+            temp = temp.next;
+        }
+
+        return false;
+    }
+
+    public boolean isExistRec(int item, Node head){
+        if(head == null)
+            return false;
+        if(head.data == item)
+            return true;
+
+        return isExistRec(item, head.next);
+    }
+
 }

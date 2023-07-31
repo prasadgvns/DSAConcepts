@@ -51,4 +51,39 @@ public class LinkedListTest {
 
         myList.printList();
     }
+
+    @Test
+    public void isExistIterativeTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(5);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(1);
+
+        assertTrue(myList.isExistIterative(5));
+        assertTrue(myList.isExistIterative(4));
+        assertTrue(myList.isExistIterative(3));
+        assertTrue(myList.isExistIterative(2));
+        assertTrue(myList.isExistIterative(1));
+        assertFalse(myList.isExistIterative(6));
+    }
+
+    @Test
+    public void isExistRecTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(5);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(1);
+
+        assertTrue(myList.isExistRec(5, myList.head));
+        assertTrue(myList.isExistRec(4, myList.head));
+        assertTrue(myList.isExistRec(3, myList.head));
+        assertTrue(myList.isExistRec(2, myList.head));
+        assertTrue(myList.isExistRec(1, myList.head));
+        assertFalse(myList.isExistRec(6, myList.head));
+
+    }
 }
