@@ -15,3 +15,8 @@ Basic Linked List Operations
 3. Check whether a particular item in the list exists or not
     a) Iterative
     b)Recursive
+
+4. Reverse a linked list
+    a) Iterative
+    b) Recursive
+    c) using stack

@@ -86,4 +86,52 @@ public class LinkedListTest {
         assertFalse(myList.isExistRec(6, myList.head));
 
     }
+
+    @Test
+    public void reverseIterativeTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(5);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(1);
+
+        myList.printList();
+
+        myList.reverseIterative();
+
+        myList.printList();
+    }
+
+    @Test
+    public void reverseRecTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(5);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(1);
+
+        myList.printList();
+
+        myList.head = myList.reverseRec(myList.head);
+
+        myList.printList();
+    }
+
+    @Test
+    public void reverseUsingStackTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(5);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(1);
+
+        myList.printList();
+
+        myList.reverseUsingStack();
+
+        myList.printList();
+    }
 }

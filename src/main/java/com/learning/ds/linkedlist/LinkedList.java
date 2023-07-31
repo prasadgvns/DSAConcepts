@@ -1,5 +1,7 @@
 package com.learning.ds.linkedlist;
 
+import java.util.Stack;
+
 class Node{
     int data;
     Node next;
@@ -125,6 +127,55 @@ public class LinkedList {
             return true;
 
         return isExistRec(item, head.next);
+    }
+
+    // Time Complexity : O(N)
+    // Auxiliary Space : O(1)
+    public void reverseIterative(){
+        Node curr = this.head;
+        Node prev = null;
+        Node next = null;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        this.head = prev;
+    }
+
+    // Time Complexity : O(N)
+    // Auxiliary Space : O(N)
+    public Node reverseRec(Node head){
+        if(head == null || head.next == null)
+            return head;
+
+        Node rest = reverseRec(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return rest;
+    }
+
+    public void reverseUsingStack(){
+        Stack<Node> stack = new Stack<>();
+        Node temp = head;
+
+        while(temp.next != null){
+            stack.push(temp);
+            temp = temp.next;
+        }
+
+        head = temp;
+
+        while(!stack.isEmpty()){
+            temp.next = stack.pop();
+            temp = temp.next;
+        }
+
+        temp.next = null;
     }
 
 }
