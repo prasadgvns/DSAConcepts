@@ -1,0 +1,17 @@
+31-July-2023
+--------------------------------
+Basic Linked List Operations
+*************************************************************
+1. Linked List Insertion
+   a) Insert at the beginning of the list
+   b) Insert after a given node
+   c) Insert at the end of the list
+
+2. Linked List Generic Operations
+   a) get size of the list
+   b) print the list
+   c) Check whether the list is empty or not
+
+3. Check whether a particular item in the list exists or not
+    a) Iterative
+    b)Recursive

@@ -100,6 +100,9 @@ public class LinkedList {
 
 
     // Element exist in LinkedList or not
+
+    // Time Complexity : O(N)
+    // Auxiliary Space : O(1)
     public boolean isExistIterative(int item){
         Node temp = this.head;
 
@@ -113,6 +116,8 @@ public class LinkedList {
         return false;
     }
 
+    // Time Complexity : O(N)
+    // Auxiliary Space : O(N)
     public boolean isExistRec(int item, Node head){
         if(head == null)
             return false;
