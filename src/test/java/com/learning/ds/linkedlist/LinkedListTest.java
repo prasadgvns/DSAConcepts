@@ -134,4 +134,154 @@ public class LinkedListTest {
 
         myList.printList();
     }
+
+    @Test
+    public void deleteFromBegTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(5);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(1);
+
+        assertEquals(5, myList.getSize());
+
+        Node deletedNode = myList.deleteFromBeg();
+        assertEquals(5, deletedNode.data);
+        assertEquals(4, myList.getSize());
+
+        Node deletedNode1 = myList.deleteFromBeg();
+        assertEquals(4, deletedNode1.data);
+        assertEquals(3, myList.getSize());
+
+        Node deletedNode2 = myList.deleteFromBeg();
+        assertEquals(3, deletedNode2.data);
+        assertEquals(2, myList.getSize());
+
+        Node deletedNode3 = myList.deleteFromBeg();
+        assertEquals(2, deletedNode3.data);
+        assertEquals(1, myList.getSize());
+
+        Node deletedNode4 = myList.deleteFromBeg();
+        assertEquals(1, deletedNode4.data);
+        assertEquals(0, myList.getSize());
+
+        Node deletedNode5 = myList.deleteFromBeg();
+        assertNull(deletedNode5);
+        assertEquals(0, myList.getSize());
+    }
+
+    @Test
+    public void deleteFromEndTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(5);
+
+        assertEquals(5, myList.getSize());
+
+        Node deletedNode = myList.deleteFromEnd();
+        assertEquals(5, deletedNode.data);
+        assertEquals(4, myList.getSize());
+
+        Node deletedNode1 = myList.deleteFromEnd();
+        assertEquals(4, deletedNode1.data);
+        assertEquals(3, myList.getSize());
+
+        Node deletedNode2 = myList.deleteFromEnd();
+        assertEquals(3, deletedNode2.data);
+        assertEquals(2, myList.getSize());
+
+        Node deletedNode3 = myList.deleteFromEnd();
+        assertEquals(2, deletedNode3.data);
+        assertEquals(1, myList.getSize());
+
+        Node deletedNode4 = myList.deleteFromEnd();
+        assertEquals(1, deletedNode4.data);
+        assertEquals(0, myList.getSize());
+
+        Node deletedNode5 = myList.deleteFromEnd();
+        assertNull(deletedNode5);
+    }
+
+    @Test
+    public void deleteTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(5);
+
+        assertEquals(5, myList.getSize());
+
+        assertEquals(1, myList.delete(0).data);
+        assertEquals(4, myList.getSize());
+
+        assertEquals(3, myList.delete(1).data);
+        assertEquals(3, myList.getSize());
+
+        assertEquals(5, myList.delete(2).data);
+        assertEquals(2, myList.getSize());
+
+        assertNull(myList.delete(3));
+        assertEquals(2, myList.getSize());
+
+        assertEquals(4, myList.delete(1).data);
+        assertEquals(1, myList.getSize());
+    }
+
+    @Test
+    public void deleteByValueTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(2);
+        myList.insertAtEnd(3);
+        myList.insertAtEnd(4);
+        myList.insertAtEnd(5);
+
+        myList.deleteByValue(6);
+        assertEquals(5, myList.getSize());
+
+        myList.deleteByValue(1);
+        assertEquals(4, myList.getSize());
+
+        myList.deleteByValue(5);
+        assertEquals(3, myList.getSize());
+
+        myList.deleteByValue(2);
+        assertEquals(2, myList.getSize());
+    }
+
+
+    @Test
+    public void getTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+
+        assertEquals(30, myList.get(2).data);
+        assertEquals(1, myList.get(0).data);
+        assertEquals(10, myList.get(1).data);
+        assertEquals(14, myList.get(3).data);
+        assertNull(myList.get(4));
+    }
+
+    @Test
+    public void getRecTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+
+        assertEquals(30, myList.getRec(myList.head,2).data);
+        assertEquals(10, myList.getRec(myList.head,1).data);
+        assertEquals(14, myList.getRec(myList.head,3).data);
+        assertNull(myList.getRec(myList.head,4));
+    }
 }

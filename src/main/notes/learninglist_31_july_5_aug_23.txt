@@ -20,3 +20,16 @@ Basic Linked List Operations
     a) Iterative
     b) Recursive
     c) using stack
+
+5. Linked List Deletion Operation
+    a) delete from begining
+
+01-Aug-2023
+----------------------------------------------------
+    b) delete from end
+    c) delete node of given index
+    d)delete node by value
+
+6. Write a function to get Nth node of the linked list
+    a) Iterative
+    b) Recursive

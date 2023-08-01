@@ -2,6 +2,8 @@ package com.learning.ds.linkedlist;
 
 import java.util.Stack;
 
+// https://www.geeksforgeeks.org/data-structures/linked-list/
+
 class Node{
     int data;
     Node next;
@@ -159,6 +161,8 @@ public class LinkedList {
         return rest;
     }
 
+    // Time Complexity : O(N)
+    // Auxiliary Space : O(N)
     public void reverseUsingStack(){
         Stack<Node> stack = new Stack<>();
         Node temp = head;
@@ -177,5 +181,138 @@ public class LinkedList {
 
         temp.next = null;
     }
+
+    // Deletion Program
+
+    // Time Complexity : O(1)
+    // Auxiliary Space : O(1)
+    public Node deleteFromBeg(){
+        if(head == null)
+            return head;
+        Node deletedNode = head;
+        head = head.next;
+        size--;
+        return deletedNode;
+    }
+
+
+    // Time Complexity : O(N)
+    // Auxiliary Space : O(1)
+   public Node deleteFromEnd(){
+        if(head == null)
+            return head;
+
+        if(head.next == null){
+            Node deleteNode = head;
+            head = head.next;
+            size--;
+            return deleteNode;
+        }
+
+        Node temp = head;
+        Node prev = null;
+
+        while(temp.next != null){
+            prev = temp;
+            temp = temp.next;
+        }
+
+        Node deletedNode = temp;
+        prev.next = temp.next;
+        size--;
+        return deletedNode;
+   }
+
+   public Node delete(int index){
+        if(head == null)
+            return head;
+
+        if(index == 0){
+            Node deletedNode = head;
+            head = head.next;
+            size--;
+            return deletedNode;
+        }
+
+        int i = 0;
+        Node temp = head;
+        Node prev = null;
+
+        while(temp != null && i < index){
+            prev = temp;
+            temp = temp.next;
+            i++;
+        }
+
+        if(temp == null || prev.next == null){
+            return null;
+        }
+
+        Node deletedNode = temp;
+        prev.next = temp.next;
+        size--;
+        return deletedNode;
+
+   }
+
+   public void deleteByValue(int value){
+        if(head == null)
+            return ;
+
+        if(head.data == value){
+            head = head.next;
+            size--;
+            return;
+        }
+
+        Node temp = head;
+        Node prev = null;
+
+        while(temp != null && temp.data != value){
+            prev = temp;
+            temp = temp.next;
+        }
+
+        if(temp == null) return;
+        size--;
+        prev.next = temp.next;
+   }
+
+   public Node deleteByValueRec(Node head, int value){
+        if(head == null) return null;
+
+        if(head.data == value){
+            Node deletedNode = head;
+            head = head.next;
+            return deletedNode;
+        }
+
+        return deleteByValueRec(head.next, value);
+   }
+
+   public Node get(int index){
+        if(head == null) return head;
+
+        Node temp = head;
+        int i = 0;
+
+        while(temp != null && i < index){
+            temp = temp.next;
+            i++;
+        }
+
+        if(temp == null) return null;
+
+        return temp;
+   }
+
+   public Node getRec(Node head, int index){
+        if(head == null) return head;
+
+        if(index == 0)
+            return head;
+
+        return getRec(head.next, index - 1);
+   }
 
 }
