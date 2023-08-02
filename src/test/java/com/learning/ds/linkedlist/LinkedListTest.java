@@ -284,4 +284,117 @@ public class LinkedListTest {
         assertEquals(14, myList.getRec(myList.head,3).data);
         assertNull(myList.getRec(myList.head,4));
     }
+
+    @Test
+    public void getFromLastTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+
+        assertEquals(14, myList.getFromLast(0).data);
+        assertEquals(30, myList.getFromLast(1).data);
+        assertEquals(10, myList.getFromLast(2).data);
+        assertEquals(1, myList.getFromLast(3).data);
+        assertNull(myList.getFromLast(4));
+        assertNull(myList.getFromLast(5));
+        assertNull(myList.getFromLast(6));
+    }
+
+    @Test
+    public void getFromLastRecTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+
+        assertEquals(14, myList.getFromLastRec(myList.head, 0).data);
+    }
+
+    @Test
+    public void findMiddleTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+        myList.insertAtEnd(15);
+        myList.insertAtEnd(25);
+        myList.insertAtEnd(45);
+
+        assertEquals(14, myList.findMiddle().data);
+    }
+
+    @Test
+    public void countTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+        myList.insertAtEnd(15);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(25);
+        myList.insertAtEnd(45);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(15);
+
+        assertEquals(3, myList.count(10));
+        assertEquals(2, myList.count(15));
+        assertEquals(1, myList.count(45));
+        assertEquals(0, myList.count(17));
+    }
+
+    @Test
+    public void isCircularTest(){
+        LinkedList myList = new LinkedList();
+        myList.head = new Node(1);
+        myList.head.next = new Node(2);
+        myList.head.next.next = new Node(3);
+        myList.head.next.next.next = new Node(4);
+        myList.head.next.next.next = myList.head.next;
+
+        assertTrue(myList.isCircular());
+
+        LinkedList myList1 = new LinkedList();
+        myList1.insertAtEnd(1);
+        myList1.insertAtEnd(10);
+        myList1.insertAtEnd(30);
+        myList1.insertAtEnd(14);
+        myList1.insertAtEnd(15);
+        myList1.insertAtEnd(25);
+        myList1.insertAtEnd(45);
+
+        assertFalse(myList1.isCircular());
+    }
+
+    @Test
+    public void printReverseTest(){
+        LinkedList myList = new LinkedList();
+        myList.insertAtEnd(1);
+        myList.insertAtEnd(10);
+        myList.insertAtEnd(30);
+        myList.insertAtEnd(14);
+        myList.insertAtEnd(15);
+        myList.insertAtEnd(25);
+        myList.insertAtEnd(45);
+
+        myList.printList();
+        myList.printReverseUsingRec(myList.head);
+    }
+
+    @Test
+    public void cycleLengthTest(){
+        LinkedList myList = new LinkedList();
+        myList.head = new Node(1);
+        myList.head.next = new Node(2);
+        myList.head.next.next = new Node(3);
+        myList.head.next.next.next = new Node(4);
+        myList.head.next.next.next.next = new Node(5);
+        myList.head.next.next.next.next.next = myList.head.next;
+
+        assertEquals(4, myList.cycleLength());
+    }
 }

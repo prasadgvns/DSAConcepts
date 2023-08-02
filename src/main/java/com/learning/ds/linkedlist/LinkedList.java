@@ -18,6 +18,8 @@ public class LinkedList {
     Node head;
     private int size;
 
+    private static int count;
+
     public LinkedList(){
         this.head = null;
         this.size = 0;
@@ -315,4 +317,122 @@ public class LinkedList {
         return getRec(head.next, index - 1);
    }
 
+
+   public Node getFromLast(int index){
+        Node temp = head;
+        Node prev = head;
+        int i = 0;
+
+        while(temp != null && i < index){
+            temp = temp.next;
+            i++;
+        }
+
+        if(temp == null) return null;
+
+        while(temp.next != null){
+            prev = prev.next;
+            temp = temp.next;
+        }
+
+        return prev;
+   }
+
+   //TODO: Need to be updated
+   public Node getFromLastRec(Node head, int index){
+        if(head == null)
+            return null;
+
+       if(count == index)
+           return head;
+
+
+        getFromLastRec(head.next, index);
+
+        count = count + 1;
+
+
+
+        return null;
+   }
+
+   public Node findMiddle(){
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return slow;
+   }
+
+   public int count(int value){
+        int count = 0;
+        Node temp = head;
+
+        while(temp != null){
+            if(temp.data == value){
+                count++;
+            }
+            temp = temp.next;
+        }
+
+        return count;
+   }
+
+   public boolean isCircular(){
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if(slow == fast)
+                return true;
+        }
+
+        return false;
+   }
+
+   public void printReverseUsingRec(Node head){
+        if(head == null) {
+            return;
+        }
+        printReverseUsingRec(head.next);
+        System.out.print(head.data+ "->");
+   }
+
+   public int cycleLength(){
+
+        Node fastPtr = head;
+        Node slowPtr = head;
+
+        boolean isCycleExists = false;
+
+        while(fastPtr != null && fastPtr.next != null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+
+            if(fastPtr == slowPtr){
+                return countNodes(slowPtr);
+            }
+        }
+        
+        return 0;
+   }
+
+    private int countNodes(Node slowPtr) {
+        int length = 1;
+        Node temp = slowPtr;
+
+        while(temp.next != slowPtr){
+            length++;
+            temp = temp.next;
+        }
+
+        return length;
+    }
 }

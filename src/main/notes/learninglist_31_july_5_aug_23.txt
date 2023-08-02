@@ -33,3 +33,19 @@ Basic Linked List Operations
 6. Write a function to get Nth node of the linked list
     a) Iterative
     b) Recursive
+
+7. Write a function to get Nth node from the last in linked list
+     a) Iterative
+     b) Recursive
+
+8. Find Middle of the linked list
+
+9. Write a function to count the number of times a given int occurs in list.
+
+10. Check if linked list is circular or not.
+
+
+02-Aug-2023
+--------------------------------------------------------------
+1. Print linked list reverse without reversing it using recursion.
+2. Find length of loop/cycle in a linked list.

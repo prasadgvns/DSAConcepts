@@ -2,3 +2,5 @@ Linked List
 ----------------------
 1. Reverse linked list using recursion.
 2. Reverse linked list using stack.
+3. Find Nth node from last using recursion.
+4. Find length of loop/cycle in a linked list.
